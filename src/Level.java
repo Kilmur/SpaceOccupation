@@ -1,5 +1,5 @@
 
 public enum Level {
-    SingleCellular, MultiCellular, Primitive,
+    Unicellular, Multicellular, Primitive,
     Developed, Thinking, Intelligent
 }
