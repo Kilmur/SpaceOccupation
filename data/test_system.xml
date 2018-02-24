@@ -1,18 +1,18 @@
 <?xml version="1.1" encoding="utf-8"?>
 
 <system id="sys0" name="Test">
-    <cataclysms>
-        <cataclysm id="cat0" name="Supernova" freq="0.01">
+    <disasters>
+        <disaster id="cat0" name="Supernova" freq="0.01">
             <event id="ev0" name="Flash" start="0" duration="5">
                 <condition type="radiation" level="1" />
             </event>
-        </cataclysm>
-        <cataclysm id="cat1" name="Star flash" freq="0.1">
+        </disaster>
+        <disaster id="cat1" name="Star flash" freq="0.1">
             <event id="ev0" name="Flash" start="0" duration="2">
                 <condition type="temperature" change="1" />
             </event>
-        </cataclysm>
-    </cataclysms>
+        </disaster>
+    </disasters>
     <planets>
         <planet id="pl0" name="First" xcoords="10" ycoord="10" light="100">
             <conditions>
@@ -23,14 +23,14 @@
                 <condition type="pH" level="0" />
                 <condition type="radiation" level="0" />
             </conditions>
-            <cataclysms>
-                <cataclysm id="cat0" name="Asteroid" freq="0.5">
+            <disasters>
+                <disaster id="cat0" name="Asteroid" freq="0.5">
                     <event id="ev0" name="Impact" start="0" duration="1">
                         <impact level="2" />
                         <condition type="temperature" level="1" />
                     </event>
-                </cataclysm>
-                <cataclysm id="cat1" name="Volcano" freq="0.1">
+                </disaster>
+                <disaster id="cat1" name="Volcano" freq="0.1">
                     <event id="ev0" name="Eruption" start="0" duration="1">
                         <impact level="1" />
                         <condition type="temperature" level="1" />
@@ -39,8 +39,8 @@
                         <condition type="temperature" level="-1" />
                         <condition type="atmosphere" level="0" />
                     </event>
-                </cataclysm>
-            </cataclysms>
+                </disaster>
+            </disasters>
         </planet>
         <planet id="pl1" name="Second" xcoord="20" ycoord="20" light="50">
         </planet>
