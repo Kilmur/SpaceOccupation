@@ -8,6 +8,7 @@ public class Planet {
     long totalEnergy;     // Общая энергия
     long[] energyPhases;
     ArrayList<Phase> phases;
+    int[] conditions;
 
     public Planet(int posX, int posY, long energyGain) {
         this.posX = posX;
