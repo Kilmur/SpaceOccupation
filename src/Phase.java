@@ -5,9 +5,8 @@ public class Phase {
     private double repRate;
     private double consumption;    // Затраты энергии на 1 единицу
     private double production;     // Производство энергии 1-ой единицей
+    double percentOffspring;
     private long energy;
-    private long energyForNextPhase;
-    private long extraEnergy;
     private Level level;
     Planet planet;
 
@@ -36,25 +35,20 @@ public class Phase {
     }
 
     private void feed(){
-        energy = planet.getEnergyForPhase(level.getLevel());
-        long nessEnergy = (long) (population * consumption);
-        if(energy > nessEnergy){
-            energyForNextPhase = (long) (population * production);
-            extraEnergy = energy - nessEnergy;
-        }else{
-            population = (long) (energy / consumption);
-            energyForNextPhase = (long) (population * production);
-            extraEnergy = 0;  // Нужен минимум какой то
-        }
+        energy += planet.getEnergyForPhase(level.getLevel());
+        long maxPopul = (long) (energy / consumption);
+        population = Math.min(population, maxPopul);
+        energy -= (long) (population * consumption);
     }
 
     public long energyGainPhase(){
-        return energyForNextPhase;
+        return (long) (population * production);
     }
 
-    public long getExtraEnergy() {
-        return extraEnergy;
+    public long getOffsprings(){
+        return (long) (population * percentOffspring);
     }
+
 
 
 }

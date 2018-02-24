@@ -5,7 +5,6 @@ public class Planet {
     int posX;
     int posY;
 
-    long energyGain;      // Энергия, получаемая планетой после каждого хода (может убрать это поле)
     long totalEnergy;     // Общая энергия
     long[] energyPhases;
     ArrayList<Phase> phases;
@@ -14,7 +13,7 @@ public class Planet {
         this.posX = posX;
         this.posY = posY;
         energyPhases = new long[6];
-        this.energyPhases[0] = energyGain;
+        energyPhases[0] = energyGain;
         phases = new ArrayList<Phase>();
     }
 

@@ -8,4 +8,8 @@ public class PlanetarySystem {
         this.planets = planets;
     }
 
+    public void nextStep(){
+
+    }
+
 }

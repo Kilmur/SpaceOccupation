@@ -3,7 +3,7 @@
 <life id="lf0" name="Carbon life">
     <phase id="ph0" name="Unicellular" level="0">
         <features>
-            <feature type="propagation" value="0.5" />
+            <feature type="reprate" value="0.5" />
             <feature type="consumption" value="0.5" />
             <feature type="production" value="1" />
         </features>
@@ -29,6 +29,7 @@
         <developments>
             <development id="dev0" name="Radiation resistance" cost="100">
                 <requirements>
+                    <development id="dev10" type="yes" />
                     <condition type="radiation" value="1" />
                     <status type="population" value="100" />
                 </requirements>
