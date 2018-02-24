@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class System {
+public class PlanetarySystem {
 
     ArrayList<Planet> planets;
 
-    public System(ArrayList<Planet> planets) {
+    public PlanetarySystem(ArrayList<Planet> planets) {
         this.planets = planets;
     }
 
