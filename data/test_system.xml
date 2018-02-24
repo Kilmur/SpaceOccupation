@@ -1,0 +1,50 @@
+<?xml version="1.1" encoding="utf-8"?>
+
+<system id="sys0" name="Test">
+    <cataclysms>
+        <cataclysm id="cat0" name="Supernova" freq="0.01">
+            <event id="ev0" name="Flash" start="0" duration="5">
+                <condition type="radiation" level="1" />
+            <event>
+        </cataclysm>
+        <cataclysm id="cat1" name="Star flash" freq="0.1">
+            <event id="ev0" name="Flash" start="0" duration="2">
+                <condition type="temperature" change="1" />
+            <event>
+        </cataclysm>
+    </cataclysms>
+    <planets>
+        <planet id="pl0" name="First" xcoords="10" ycoord="10" light="100">
+            <conditions>
+                <condition type="temperature" level="0" />
+                <condition type="atmosphere" level="1" />
+                <condition type="humidity" level="0" />
+                <condition type="pressure" level="0" />
+                <condition type="pH" level="0" />
+                <condition type="radiation" level="0" />
+            </conditions>
+            <cataclysms>
+                <cataclysm id="cat0" name="Asteroid" freq="0.5">
+                    <event id="ev0" name="Impact" start="0" duration="1">
+                        <impact level="2" />
+                        <condition type="temperature" level="1" />
+                    <event>
+                </cataclysm>
+                <cataclysm id="cat1" name="Volcano" freq="0.1">
+                    <event id="ev0" name="Eruption" start="0" duration="1">
+                        <impact level="1" />
+                        <condition type="temperature" level="1" />
+                    </event>
+                    <event id="ev1" name="Ash" start="1" duration="5">
+                        <condition type="temperature" level="-1" />
+                        <condition type="atmosphere" level="0" />
+                    </event>
+                </cataclysm>
+            </cataclysms>
+        </planet>
+        <planet id="pl1" name="Second" xcoord="20" ycoord="20" light="50">
+        </planet>
+        <planet id="pl2" name="Third" xcoord="5" ycoord="30" light="30">
+        </planet>
+    </planets>
+</system>

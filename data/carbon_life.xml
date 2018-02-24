@@ -1,0 +1,48 @@
+<?xml version="1.1" coding="utf-8"?>
+
+<life id="lf0" name="Carbon life">
+    <phase id="ph0" name="Unicellular" level="0">
+        <features>
+            <feature type="propagation" value="0.5" />
+            <feature type="consumption" value="0.5" />
+            <feature type="production" value="1" />
+        </features>
+        <tolerances>
+            <tolerance type="temperature" value="0" />
+            <tolerance type="atmosphere" value="1" />
+            <tolerance type="humidity" value="0" />
+            <tolerance type="humidity" value="1" />
+            <tolerance type="pressure" value="0" />
+            <tolerance type="pH" value="0" />
+            <tolerance type="radiation" value="0" />
+            <tolerance type="impact" value="0" />
+        </tolerances>
+        <mortalities>
+            <mortality type="temperature" value="0.5" />
+            <mortality type="atmosphere" value="1" />
+            <mortality type="humidity" value="0.5" />
+            <mortality type="pressure" value="0.3" />
+            <mortality type="pH" value="0.5" />
+            <mortality type="radiation" value="0.3" />
+            <mortality type="impact" value="0.5" />
+        </mortalities>
+        <developments>
+            <development id="dev0" name="Radiation resistance" cost="100">
+                <requirements>
+                    <condition type="radiation" value="1" />
+                    <status type="population" value="100" />
+                </requirements>
+                <effects>
+                    <tolerance type="radiation" value="1" action="add" />
+                    <mortality type="humidity" value="0.3" action="set" />
+                    <feature type="reproduction" value="0.4" action="set" />
+                </effects>
+            </development>
+        </developments>
+    </phase>
+    <phase id="ph1" name="Multicellular" level="1" />
+    <phase id="ph2" name="Primitive" level="2" />
+    <phase id="ph3" name="Developed" level="3" />
+    <phase id="ph4" name="Thinking" level="4" />
+    <phase id="ph5" name="Intelligent" level="5" />
+</life>

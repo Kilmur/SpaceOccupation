@@ -1,6 +1,6 @@
 
 public enum Level {
-    SingleCellular(0), MultiCellular(1), Primitive(2),
+    Unicellular(0), Multicellular(1), Primitive(2),
     Developed(3), Thinking(4), Intelligent(5);
 
     private int level;
