@@ -6,7 +6,6 @@ public class Phase {
     private double consumption;    // Затраты энергии на 1 единицу
     private double production;     // Производство энергии 1-ой единицей
     private long energy;
-    private long extraEnergy;
     private Level level;
     Planet planet;
 
@@ -45,9 +44,6 @@ public class Phase {
         return (long) (population * production);
     }
 
-    public long getExtraEnergy() {
-        return extraEnergy;
-    }
 
 
 }
