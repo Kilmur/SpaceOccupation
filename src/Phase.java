@@ -5,6 +5,7 @@ public class Phase {
     private double repRate;
     private double consumption;    // Затраты энергии на 1 единицу
     private double production;     // Производство энергии 1-ой единицей
+    double percentOffspring;
     private long energy;
     private Level level;
     Planet planet;
@@ -42,6 +43,10 @@ public class Phase {
 
     public long energyGainPhase(){
         return (long) (population * production);
+    }
+
+    public long getOffsprings(){
+        return (long) (population * percentOffspring);
     }
 
 
