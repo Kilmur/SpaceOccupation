@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Phase {
 
@@ -9,6 +10,9 @@ public class Phase {
     private long energy;
     private Level level;
     Planet planet;
+    ArrayList<Integer>[] tolerances;
+    double[] mortality;
+    Development[] developments;
 
     boolean hasOffspring = false;
 
@@ -48,6 +52,16 @@ public class Phase {
     public long getOffsprings(){
         return (long) (population * percentOffspring);
     }
+
+    public long getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(long population) {
+        this.population = population;
+    }
+
+
 
 
 
