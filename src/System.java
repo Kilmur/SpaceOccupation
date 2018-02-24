@@ -8,4 +8,8 @@ public class System {
         this.planets = planets;
     }
 
+    public void nextStep(){
+
+    }
+
 }
