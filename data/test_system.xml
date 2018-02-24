@@ -5,12 +5,12 @@
         <cataclysm id="cat0" name="Supernova" freq="0.01">
             <event id="ev0" name="Flash" start="0" duration="5">
                 <condition type="radiation" level="1" />
-            <event>
+            </event>
         </cataclysm>
         <cataclysm id="cat1" name="Star flash" freq="0.1">
             <event id="ev0" name="Flash" start="0" duration="2">
                 <condition type="temperature" change="1" />
-            <event>
+            </event>
         </cataclysm>
     </cataclysms>
     <planets>
@@ -28,7 +28,7 @@
                     <event id="ev0" name="Impact" start="0" duration="1">
                         <impact level="2" />
                         <condition type="temperature" level="1" />
-                    <event>
+                    </event>
                 </cataclysm>
                 <cataclysm id="cat1" name="Volcano" freq="0.1">
                     <event id="ev0" name="Eruption" start="0" duration="1">
