@@ -4,44 +4,41 @@ import java.util.stream.Collectors;
 
 
 public class EventManager {
-	List<EventWrapper> events;
+	List<Event> events;
 	
 	public EventManager() {
-		events = new LinkedList<EventWrapper>();
+		events = new LinkedList<Event>();
 	}
 	
-	public void addEvent(Event event, int start, int duration) {
-		events.add(new EventWrapper(event, start, duration));
+	public void addEvent(String name, LinkedHandler<Object> event, int delay) {
+		events.add(new Event(name, event, delay));
 	}
 	
 	public void nextStep() {
 		events = events.stream()
-				.filter(wrapper -> wrapper.nextStep())
+				.filter(wrapper -> wrapper.waitAndApply())
 				.collect(Collectors.toList());
 	}
 }
 
 
-class EventWrapper {
-	int applyDelay, revokeDelay;
-	Event event;
+class Event {
+	int delay;
+	String name;
+	LinkedHandler<Object> handler;
 	
-	public EventWrapper(Event event, int start, int duration) {
-		applyDelay = start;
-		revokeDelay = start + duration;
+	public Event(String name, LinkedHandler<Object> handler, int delay) {
+		this.name = name;
+		this.handler = handler;
+		this.delay = delay;
 	}
 	
-	public boolean nextStep() {
-		if(applyDelay == 0) {
-			event.apply();
-		}
-		applyDelay -= 1;
-		
-		if(revokeDelay == 0) {
-			event.revoke();
+	public boolean waitAndApply() {
+		if(delay == 0) {
+			handler.apply();
 			return false;
 		}
-		revokeDelay -= 1;
+		delay -= 1;
 		return true;
 	}
 }
