@@ -10,8 +10,12 @@ public class EventManager {
 		events = new LinkedList<Event>();
 	}
 	
-	public void addEvent(String name, LinkedHandler<Object> event, int delay) {
-		events.add(new Event(name, event, delay));
+	public void addEvent(Event event) {
+		events.add(event);
+	}
+	
+	public void addEvent(String name, LinkedHandler<Object> handler, int delay) {
+		events.add(new Event(name, handler, delay));
 	}
 	
 	public void nextStep() {
