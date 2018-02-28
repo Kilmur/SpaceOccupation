@@ -1,20 +1,18 @@
 
 public abstract class Handler<Target> {
 	public abstract void apply(Target target);
-	
-	
 }
 
 
 class ConditionHandler extends Handler<Planet>{
 	int condition;
 	int delta;
-	
+
 	public ConditionHandler(int condition, int delta) {
 		this.condition = condition;
 		this.delta = delta;
 	}
-	
+
 	public void apply(Planet target) {
 		target.conditions[condition] += delta;
 	}
@@ -33,7 +31,7 @@ abstract class LinkedHandler<Target> extends Handler<Target> {
 class PlanetaryDisaster extends LinkedHandler<Planet> {
 	Planet target;
 	private Handler<Planet>[] handlers;
-	
+
 	public PlanetaryDisaster(Planet target, Handler<Planet>[] handlers) {
 		this.target = target;
 		this.handlers = handlers;
@@ -51,7 +49,7 @@ class PlanetaryDisaster extends LinkedHandler<Planet> {
 class SpaceDisaster extends LinkedHandler<PlanetarySystem> {
 	PlanetarySystem target;
 	private Handler<Planet>[] handlers;
-	
+
 	public SpaceDisaster(PlanetarySystem target, Handler<Planet>[] handlers) {
 		this.target = target;
 		this.handlers = handlers;
