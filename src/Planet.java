@@ -1,3 +1,9 @@
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 
 public class Planet {
 
@@ -14,8 +20,71 @@ public class Planet {
     int posY;
 
     int[] conditions;
-    long[] energy;
+    long[] energy = {0l};
     Phase[] phases;
+
+    @XmlAttribute
+    public int getPosX() {
+        return posX;
+    }
+
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
+    @XmlAttribute
+    public int getPosY() {
+        return posY;
+    }
+
+    public void setPosY(int posY) {
+        this.posY = posY;
+    }
+
+    @XmlElementWrapper(name = "conditions")
+    @XmlElement(name = "condition")
+    public int[] getConditions() {
+        return conditions;
+    }
+
+    public void setConditions(int[] conditions) {
+        this.conditions = conditions;
+    }
+
+    @XmlAttribute(name = "energy")
+    public long getEnergy() {
+        return energy[0];
+    }
+
+    public void setEnergy(long energy) {
+        this.energy[0] = energy;
+    }
+
+    public List<Long> getProducedEnergies() {
+        LinkedList<Long> energies = new LinkedList<Long>();
+        for(int i=1; i<energy.length; i++) {
+            energies.add(energy[i]);
+        }
+        return energies;
+    }
+
+    public void setProducedEnergies(List<Long> energies) {
+        energies.add(0, this.energy[0]);
+        int length = energies.size();
+        energy = new long[length];
+        for(int i=0; i<energy.length; i++) {
+            energy[i] = energies.get(i);
+        }
+    }
+
+    @XmlElement
+    public Phase[] getPhases() {
+        return phases;
+    }
+
+    public void setPhases(Phase[] phases) {
+        this.phases = phases;
+    }
 
     public void nextStep() {
         for(int level=0; level<phases.length; level++) {
