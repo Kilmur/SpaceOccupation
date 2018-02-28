@@ -1,7 +1,7 @@
 
 public class Development {
 
-    boolean isApllied = false;
+    boolean isApplied = false;
 
     boolean check(){
         return false;
