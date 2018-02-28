@@ -2,56 +2,21 @@ import java.util.ArrayList;
 
 public class Phase {
 
+    public static final int REPRODUCTION_RATE = 0;
+    public static final int ENERGY_CONSUMPTION = 1;
+    public static final int ENERGY_PRODUCTION = 2;
+    public static final int DESCENDANT_PERCENT = 3;
+    public static final int FEATURES_NUMBER = 4;
+
     private long population;
-    private double repRate;
-    private double consumption;    // Затраты энергии на 1 единицу
-    private double production;     // Производство энергии 1-ой единицей
-    double percentOffspring;
     private long energy;
-    private Level level;
-    Planet planet;
+    boolean hasDescendants = false;
+    Planet home;
+
+    double[] features;
     ArrayList<Integer>[] tolerances;
-    double[] mortality;
+    double[] mortalities;
     Development[] developments;
-
-    boolean hasOffspring = false;
-
-    public Phase(Planet planet, Level level){
-        this.planet = planet;
-        this.level = level;
-    }
-
-    public boolean nextStep(){
-        survive();
-        if(population <= 0) return false;
-        reproduce();
-        feed();
-        if(population <= 0) return false;
-        return true;
-    }
-
-    private void survive(){
-        // изменяет population в зависимости от катастрофы
-    }
-
-    private void reproduce(){
-        population = (long) Math.ceil(population * repRate);
-    }
-
-    private void feed(){
-        energy += planet.getEnergyForPhase(level.getLevel());
-        long maxPopul = (long) (energy / consumption);
-        population = Math.min(population, maxPopul);
-        energy -= (long) (population * consumption);
-    }
-
-    public long energyGainPhase(){
-        return (long) (population * production);
-    }
-
-    public long getOffsprings(){
-        return (long) (population * percentOffspring);
-    }
 
     public long getPopulation() {
         return population;
@@ -61,8 +26,32 @@ public class Phase {
         this.population = population;
     }
 
+    public long getDescendants() {
+        return (long) (population * features[DESCENDANT_PERCENT]);
+    }
 
+    public long getProducedEnergy() {
+        return (long) (population * features[ENERGY_PRODUCTION]);
+    }
 
+    public void nextStep(long energyAddition) {
+        energy += energyAddition;
+        survive();
+        reproduce();
+        feed();
+    }
 
+    private void survive() {
+        // изменяет population в зависимости от катастрофы
+    }
 
+    private void reproduce() {
+        population = (long) Math.ceil(population * features[REPRODUCTION_RATE]);
+    }
+
+    private void feed() {
+        long feedable = (long) (energy / features[ENERGY_CONSUMPTION]);
+        population = Math.min(population, feedable);
+        energy -= (long) (population * features[ENERGY_CONSUMPTION]);
+    }
 }
