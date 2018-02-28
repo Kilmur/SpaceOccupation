@@ -13,14 +13,20 @@ public class Planet {
     int posX;
     int posY;
 
+    int[] conditions;
     long[] energy;
     Phase[] phases;
-    int[] conditions;
 
     public void nextStep() {
         for(int level=0; level<phases.length; level++) {
+            long producedEnergy = phases[level].getProducedEnergy();
+            int next = level + 1;
+            if(next == phases.length) {
+                energy[level] += producedEnergy; // the last phase supplies itself
+            } else {
+                energy[next] = producedEnergy;
+            }
             phases[level].nextStep(energy[level]);
-            energy[level] = phases[level].getProducedEnergy();
         }
     }
 
