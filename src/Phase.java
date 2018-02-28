@@ -1,5 +1,12 @@
 import java.util.ArrayList;
 
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType
 public class Phase {
 
     public static final int REPRODUCTION_RATE = 0;
@@ -10,7 +17,7 @@ public class Phase {
 
     private long population;
     private long energy;
-    boolean hasDescendants = false;
+    boolean withDescendants = false;
     Planet home;
 
     double[] features;
@@ -18,6 +25,7 @@ public class Phase {
     double[] mortalities;
     Development[] developments;
 
+    @XmlElement
     public long getPopulation() {
         return population;
     }
@@ -26,10 +34,30 @@ public class Phase {
         this.population = population;
     }
 
+    @XmlElement
+    public long getEnergy() {
+        return energy;
+    }
+
+    public void setEnergy(long energy) {
+        this.energy = energy;
+    }
+
+    @XmlElement
+    public boolean isWithDescendants() {
+        return withDescendants;
+    }
+
+    public void setWithDescendants(boolean withDescendants) {
+        this.withDescendants = withDescendants;
+    }
+
+    @XmlTransient
     public long getDescendants() {
         return (long) (population * features[DESCENDANT_PERCENT]);
     }
 
+    @XmlTransient
     public long getProducedEnergy() {
         return (long) (population * features[ENERGY_PRODUCTION]);
     }
@@ -53,5 +81,27 @@ public class Phase {
         long feedable = (long) (energy / features[ENERGY_CONSUMPTION]);
         population = Math.min(population, feedable);
         energy -= (long) (population * features[ENERGY_CONSUMPTION]);
+    }
+
+    public void afterUnmarshal(Unmarshaller u, Object parent) {
+        try {
+            this.home = (Planet) parent;
+        } catch (ClassCastException e) {
+            this.home = null;
+        }
+    }
+}
+
+@XmlRootElement
+class Life {
+    Phase[] phases;
+
+    @XmlElement
+    public Phase[] getPhases() {
+        return phases;
+    }
+
+    public void setPhases(Phase[] phases) {
+        this.phases = phases;
     }
 }
