@@ -17,7 +17,7 @@ public class Phase {
 
     private long population;
     private long energy;
-    boolean withDescendants = false;
+    private boolean withDescendants = false;
     Planet home;
 
     double[] features;
@@ -50,6 +50,42 @@ public class Phase {
 
     public void setWithDescendants(boolean withDescendants) {
         this.withDescendants = withDescendants;
+    }
+
+    @XmlElement
+    public double[] getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(double[] features) {
+        this.features = features;
+    }
+
+    @XmlElement
+    public ArrayList<Integer>[] getTolerances() {
+        return tolerances;
+    }
+
+    public void setTolerances(ArrayList<Integer>[] tolerances) {
+        this.tolerances = tolerances;
+    }
+
+    @XmlElement
+    public double[] getMortalities() {
+        return mortalities;
+    }
+
+    public void setMortalities(double[] mortalities) {
+        this.mortalities = mortalities;
+    }
+
+    @XmlElement
+    public Development[] getDevelopments() {
+        return developments;
+    }
+
+    public void setDevelopments(Development[] developments) {
+        this.developments = developments;
     }
 
     @XmlTransient
