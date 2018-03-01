@@ -2,10 +2,14 @@ import java.util.ArrayList;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType
+@XmlType(propOrder = {
+        "population", "energy", "withDescendants",
+        "features", "tolerances", "mortalities", "developments"
+        })
 public class Phase {
 
     public static final int REPRODUCTION_RATE = 0;
@@ -51,7 +55,8 @@ public class Phase {
         this.withDescendants = withDescendants;
     }
 
-    @XmlElement
+    @XmlElementWrapper
+    @XmlElement(name = "feature")
     public double[] getFeatures() {
         return features;
     }
@@ -69,7 +74,8 @@ public class Phase {
         this.tolerances = tolerances;
     }
 
-    @XmlElement
+    @XmlElementWrapper
+    @XmlElement(name = "mortality")
     public double[] getMortalities() {
         return mortalities;
     }
