@@ -42,7 +42,7 @@ public class Life {
         phases[0].setMortalities(new double[]{2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7});
         phases[1].setMortalities(new double[]{1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7});
         phases[2].setMortalities(new double[]{0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7});
-        ArrayList<Integer>[] tolerances = new ArrayList[7];
+        int[] tolerances = new int[7];
         phases[0].setTolerances(tolerances);
         phases[1].setTolerances(tolerances);
         phases[2].setTolerances(tolerances);

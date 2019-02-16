@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlElement;
@@ -24,7 +23,7 @@ public class Phase {
     Planet home;
 
     double[] features;
-    ArrayList<Integer>[] tolerances;
+    int[] tolerances;
     double[] mortalities;
     Development[] developments;
 
@@ -66,11 +65,11 @@ public class Phase {
     }
 
     @XmlElement
-    public ArrayList<Integer>[] getTolerances() {
+    public int[] getTolerances() {
         return tolerances;
     }
 
-    public void setTolerances(ArrayList<Integer>[] tolerances) {
+    public void setTolerances(int[] tolerances) {
         this.tolerances = tolerances;
     }
 
