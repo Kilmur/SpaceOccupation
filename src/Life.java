@@ -1,5 +1,4 @@
 import java.io.File;
-import java.util.ArrayList;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -35,7 +34,6 @@ public class Life {
         Phase[] phases = {new Phase(), new Phase(), new Phase()};
         phases[1].setEnergy(100);
         phases[2].setEnergy(200);
-        phases[0].setDevelopments(null);
         phases[0].setFeatures(new double[]{0.1, 0.5, 0.6, 0.4});
         phases[1].setFeatures(new double[]{0.7, 0.5, 0.1, 0.2});
         phases[2].setFeatures(new double[]{0.1, 0.1, 0.1, 0.1});

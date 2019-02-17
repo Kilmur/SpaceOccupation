@@ -25,7 +25,6 @@ public class Phase {
     double[] features;
     int[] tolerances;
     double[] mortalities;
-    Development[] developments;
 
     @XmlElement
     public long getPopulation() {
@@ -81,15 +80,6 @@ public class Phase {
 
     public void setMortalities(double[] mortalities) {
         this.mortalities = mortalities;
-    }
-
-    @XmlElement
-    public Development[] getDevelopments() {
-        return developments;
-    }
-
-    public void setDevelopments(Development[] developments) {
-        this.developments = developments;
     }
 
     @XmlTransient
