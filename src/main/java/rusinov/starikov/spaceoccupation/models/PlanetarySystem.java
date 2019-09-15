@@ -1,3 +1,5 @@
+package rusinov.starikov.spaceoccupation.models;
+
 import java.util.ArrayList;
 
 import javax.xml.bind.annotation.XmlRootElement;

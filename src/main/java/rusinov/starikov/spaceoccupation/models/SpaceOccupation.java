@@ -1,3 +1,5 @@
+package rusinov.starikov.spaceoccupation.models;
+
 
 public class SpaceOccupation {
 

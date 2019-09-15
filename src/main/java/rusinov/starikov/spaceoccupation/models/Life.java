@@ -1,3 +1,5 @@
+package rusinov.starikov.spaceoccupation.models;
+
 import java.io.File;
 
 import javax.xml.bind.JAXBContext;

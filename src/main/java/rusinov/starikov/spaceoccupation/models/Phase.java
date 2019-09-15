@@ -1,3 +1,5 @@
+package rusinov.starikov.spaceoccupation.models;
+
 
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlElement;
