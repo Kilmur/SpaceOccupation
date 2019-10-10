@@ -1,3 +1,6 @@
+# Rsync filter
+.rsync-filter
+
 # NetBeans junk
 build.xml
 manifest.mf
